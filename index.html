@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Convite de Aniversário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scene">
+        <!-- Fundo do Envelope -->
+        <img src="fundodenvelope.png" class="envelope-bg" id="envelopeBg" alt="Fundo do Envelope">
+
+        <!-- Card -->
+        <div class="card-wrapper" id="cardWrapper">
+            <div class="card" id="card">
+                <div class="card-front">
+                    <img src="frentedacarta.png" alt="Frente do Convite">
+                    <!-- Botões invisíveis sobre a imagem -->
+                    <a href="https://maps.app.goo.gl/4oESo9y9oKn7Vy7U9" target="_blank" class="invisible-btn btn-local"></a>
+                    <a href="https://wa.link/n9egc6" target="_blank" class="invisible-btn btn-confirmar"></a>
+                    <div class="invisible-btn btn-lista" onclick="flipCard()"></div>
+                </div>
+                <div class="card-back">
+                    <img src="trasdacarta.png" alt="Verso do Convite">
+                </div>
+            </div>
+            <!-- Flip area to click on bottom of the card -->
+            <div class="card-flip-area" id="flipArea" onclick="flipCard()"></div>
+        </div>
+
+        <!-- INVERTIDOS: -->
+        <!-- Envelope Left Flap (Agora é esse que abre, usando o arquivo partedireita) -->
+        <img src="partedireitaquevaiabrirdoenvelope.png" class="flap-left" id="flapLeft" alt="Lado Esquerdo">
+        
+        <!-- Envelope Right Flap (Agora não abre, usando o arquivo esquerdado...) -->
+        <img src="esquerdadoelvelopequenaoabre.png" class="flap-right" id="flapRight" alt="Lado Direito">
+        
+        <!-- The Seal -->
+        <img src="selo.png" class="seal-img" id="sealImg" onclick="openEnvelope()" alt="Selo">
+    </div>
+
+    <!-- Container para os flocos -->
+    <div id="confetti-container"></div>
+
+    <!-- Efeito sonoro do confete -->
+    <audio id="popSound" src="confetti-pop.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
