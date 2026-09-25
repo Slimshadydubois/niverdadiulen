@@ -11,8 +11,18 @@ function resizeScene() {
     // Mantém a escala responsiva padrão
     const scale = Math.min(scaleX, scaleY) * 0.95;
     
-    // Combina a centralização absoluta (-50%, -50%) com a escala
-    scene.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    // Aplica apenas a escala
+    scene.style.transform = `scale(${scale})`;
+    
+    // Calcula as sobras da tela para centralizar matematicamente no pixel exato
+    const scaledWidth = baseWidth * scale;
+    const scaledHeight = baseHeight * scale;
+    
+    const leftOffset = (windowWidth - scaledWidth) / 2;
+    const topOffset = (windowHeight - scaledHeight) / 2;
+    
+    scene.style.left = `${leftOffset}px`;
+    scene.style.top = `${topOffset}px`;
 }
 
 window.addEventListener('resize', resizeScene);
