@@ -70,7 +70,7 @@ body, html {
 .seal-img {
     position: absolute;
     top: 50%;
-    left: 57%;
+    left: 50%; /* Voltou para o centro exato! */
     transform: translate(-50%, -50%);
     width: 550px;
     height: auto;
