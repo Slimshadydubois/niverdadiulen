@@ -86,25 +86,30 @@ function openEnvelope() {
     // Dispara apenas os flocos.png (como pedido)
     fireFlocos();
 
-    // 2. Abre a aba ESQUERDA (invertido novamente conforme pedido)
+    // 2. Abre a aba ESQUERDA primeiro
     flapLeft.classList.add('open');
 
-    // 3. Espera a aba abrir e puxa a carta
+    // 3. Abre a aba DIREITA logo em seguida (300ms depois)
+    setTimeout(() => {
+        flapRight.classList.add('open');
+    }, 300);
+
+    // 4. Espera as abas abrirem e puxa a carta
     setTimeout(() => {
         cardWrapper.classList.add('out');
         
-        // 4. Quando a carta vier pra frente (em 1000ms da animação), o envelope cai
+        // 5. Quando a carta vier pra frente (em 1000ms da animação), o envelope cai
         setTimeout(() => {
             flapLeft.classList.add('drop');
             flapRight.classList.add('drop');
             envelopeBg.classList.add('drop');
             
-            // 5. Ativa o clique na carta
+            // 6. Ativa o clique na carta
             setTimeout(() => {
                 flipArea.style.display = 'block';
             }, 1000);
         }, 1000);
-    }, 800);
+    }, 1100); // Espera um pouquinho mais (1100ms em vez de 800ms) para a direita abrir
 }
 
 function flipCard() {

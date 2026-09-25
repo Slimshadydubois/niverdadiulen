@@ -63,7 +63,13 @@ body, html {
     object-fit: cover; /* Corta o excesso em vez de sobrepor */
     object-position: right center;
     z-index: 2;
-    transition: top 1.5s ease, opacity 1.5s ease;
+    transform-origin: right center;
+    transition: transform 1.5s ease-in-out, top 1.5s ease, opacity 1.5s ease;
+}
+
+/* Animation class to open right flap */
+.flap-right.open {
+    transform: rotateY(140deg);
 }
 
 /* Selo PNG */
