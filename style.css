@@ -9,16 +9,17 @@ body, html {
     height: 100%;
     overflow: hidden;
     background-color: #2c2c2c;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: sans-serif;
+    /* Removido o flexbox, vamos usar absolute para garantir no mobile */
 }
 
 .scene {
     width: 1080px;
     height: 1920px;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* O transform com translate e scale será aplicado no script.js */
     perspective: 2000px;
 }
 
@@ -37,10 +38,12 @@ body, html {
 .flap-left {
     position: absolute;
     left: 0;
-    top: 7px; /* Mesmo tamanho/altura do fundo */
+    top: 7px; 
+    width: 50%; /* Ocupa exatamente a metade */
     height: 1906px;
-    width: auto;
-    z-index: 3; /* Precisa estar acima */
+    object-fit: cover; /* Corta o excesso em vez de sobrepor */
+    object-position: left center;
+    z-index: 3;
     transform-origin: left center;
     transition: transform 1.5s ease-in-out, top 1.5s ease, opacity 1.5s ease;
 }
@@ -54,9 +57,11 @@ body, html {
 .flap-right {
     position: absolute;
     right: 0;
-    top: 7px; /* Mesmo tamanho/altura do fundo */
+    top: 7px;
+    width: 50%; /* Ocupa exatamente a metade */
     height: 1906px;
-    width: auto;
+    object-fit: cover; /* Corta o excesso em vez de sobrepor */
+    object-position: right center;
     z-index: 2;
     transition: top 1.5s ease, opacity 1.5s ease;
 }

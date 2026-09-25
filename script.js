@@ -11,7 +11,8 @@ function resizeScene() {
     // Mantém a escala responsiva padrão
     const scale = Math.min(scaleX, scaleY) * 0.95;
     
-    scene.style.transform = `scale(${scale})`;
+    // Combina a centralização absoluta (-50%, -50%) com a escala
+    scene.style.transform = `translate(-50%, -50%) scale(${scale})`;
 }
 
 window.addEventListener('resize', resizeScene);
